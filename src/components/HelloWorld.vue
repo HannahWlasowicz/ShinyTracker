@@ -1,14 +1,33 @@
 <template>
   <div class="hello">
-    <p>5</p>
-    <button>+</button>
-    <button>-</button>
+    <p>{{ count }}</p>
+    <button v-on:click="increase">+</button>
+    <button v-on:click="decrease">-</button>
+    <button v-on:click="reset">Reset</button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    increase: function() {
+      this.count = this.count +1;
+    },
+    decrease: function() {
+      if(this.count > 0){
+        this.count = this.count - 1;
+      }
+    },
+    reset: function () {
+      this.count = 0;
+    }
+  },
   props: {
     msg: String
   }
