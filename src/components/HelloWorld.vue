@@ -1,9 +1,9 @@
-<template>
+<template >
   <div class="hello">
     <p>{{ count }}</p>
-    <button v-on:click="increase">+</button>
-    <button v-on:click="decrease">-</button>
-    <button v-on:click="reset">Reset</button>
+    <input type="submit" value="+" @click="increase">
+    <input type="submit" value="-" @click="decrease">
+    <input type="submit" value="Reset" @click="reset">
   </div>
 </template>
 
@@ -16,21 +16,34 @@ export default {
     }
   },
   methods: {
-    increase: function() {
+    increase() {
       this.count = this.count +1;
     },
-    decrease: function() {
+    decrease() {
       if(this.count > 0){
         this.count = this.count - 1;
       }
     },
-    reset: function () {
+    reset() {
       this.count = 0;
     }
   },
-  props: {
-    msg: String
-  }
+  created() {
+    window.addEventListener("keyup", e => {
+      const key = e.key;
+      if(key == "+"){
+        this.increase()
+      } else if (key == "-") {
+        this.decrease()
+      } else if (key == "Delete") {
+        this.reset()
+      }
+      console.log(e.key)
+    });
+  },
+  unmounted() {
+    window.removeEventListener('keyup', () => {});
+  },
 }
 </script>
 
