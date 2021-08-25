@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Tracker',
   data() {
     return {
       count: 0
