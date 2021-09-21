@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-tabs content-class="mt-3">
-      <b-tab title="Tracker" active><Tracker/></b-tab>
+      <b-tab title="Tracker"><Tracker/></b-tab>
       <b-tab title="Settings"><Settings/></b-tab>
     </b-tabs>
   </div>
